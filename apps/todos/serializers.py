@@ -5,6 +5,5 @@ class TodoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Todo
-        read_only_fields = ("id", "created_at", "created_by")
+        read_only_fields = ("id", "created_at", "creator")
         fields = "__all__"
-        

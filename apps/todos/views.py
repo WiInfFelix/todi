@@ -11,7 +11,7 @@ class TodoViewSet(viewsets.ModelViewSet):
     queryset = Todo.objects.all()
 
     def perform_create(self, serializer):
-        serializer.save(created_by=self.request.user)
+        serializer.save(creator=self.request.user)
 
     def get_queryset(self):
-        return self.queryset.filter(created_by=self.request.user)
+        return self.queryset.filter(creator=self.request.user)
