@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from apps.todos.models import Todo
+from .models import Todo
 
-from apps.todos.serializers import TodoSerializer
+from .serializers import TodoSerializer
 # Create your views here.
 
 class TodoViewSet(viewsets.ModelViewSet):
@@ -15,4 +15,3 @@ class TodoViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return self.queryset.filter(created_by=self.request.user)
-        
