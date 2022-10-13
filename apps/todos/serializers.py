@@ -1,7 +1,8 @@
 from rest_framework import serializers
 from .models import Todo
 
-class TodoSerializer(serializers.ModelSerializer):
+class TodoSerializer(serializers.HyperlinkedModelSerializer):
+    creator = serializers.HyperlinkedRelatedField(view_name="user-detail", read_only=True)
 
     class Meta:
         model = Todo
